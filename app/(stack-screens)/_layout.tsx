@@ -26,6 +26,13 @@ const StackLayout = () => {
           headerShown: false,
         }}
       />
+
+      <Stack.Screen
+        name="order/index"
+        options={{
+          headerShown: false,
+        }}
+      />
     </Stack>
   )
 }

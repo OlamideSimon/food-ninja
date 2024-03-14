@@ -6,15 +6,14 @@ import { colors, images } from '../../../constants'
 import { Text } from '../../../components/Themed'
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons'
 import Testimonials from '../../../components/restaurant/Testimonials'
+import { FilledButton } from '../../../components/Button'
 
 const Menu = () => {
+  const { id } = useLocalSearchParams()
   const colorScheme = useColorScheme() ?? 'light'
   const bg_color = colorScheme === 'dark' ? '#000' : '#fff'
-  const { id } = useLocalSearchParams()
-  // ref
   const bottomSheetRef = useRef<BottomSheet>(null)
 
-  // variables
   const snapPoints = useMemo(() => ['50%', '50%', '90%'], [])
 
   return (
@@ -73,11 +72,15 @@ const Menu = () => {
             </Text>
           </View>
 
-          {/* <RestaurantMeals /> */}
-
           <Testimonials />
         </BottomSheetScrollView>
       </BottomSheet>
+      <FilledButton
+        textClassName="capitalize text-xl"
+        className="absolute bottom-2 right-5 left-5"
+      >
+        Add to cart
+      </FilledButton>
     </View>
   )
 }

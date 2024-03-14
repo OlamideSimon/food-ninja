@@ -25,7 +25,10 @@ const SigninForm = () => {
       />
 
       <View className="px-[20%] w-full justify-center">
-        <Button className="bg-primary py-4 rounded-xl justify-center items-center mt-5 mb-2">
+        <Button
+          onPress={() => router.replace('/home/')}
+          className="bg-primary py-4 rounded-xl justify-center items-center mt-5 mb-2"
+        >
           <Text className="text-white text-2xl font-bold">Login</Text>
         </Button>
       </View>

@@ -1,11 +1,13 @@
 import React, { PropsWithChildren } from 'react'
 import { Pressable, PressableProps, View } from 'react-native'
 import Icon from 'react-native-vector-icons/Entypo'
+import { Text } from '../Themed'
 
 export type ButtonProps = PressableProps &
   Partial<{
     onPress: () => void
     className: string
+    textClassName: string
   }>
 
 export const Button = ({
@@ -18,6 +20,24 @@ export const Button = ({
     <Pressable className={`${className}`} onPress={onPress} {...props}>
       {children}
     </Pressable>
+  )
+}
+
+export const FilledButton = ({
+  children,
+  className,
+  onPress,
+  textClassName,
+  ...props
+}: PropsWithChildren<ButtonProps>) => {
+  return (
+    <Button
+      onPress={onPress}
+      className={`bg-primary py-4 rounded-xl justify-center items-center ${className}`}
+      {...props}
+    >
+      <Text className={`text-white text-2xl font-bold ${textClassName}`}>{children}</Text>
+    </Button>
   )
 }
 

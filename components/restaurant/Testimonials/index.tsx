@@ -14,7 +14,7 @@ const sampleTestimonials = {
 
 const Testimonials = () => {
   return (
-    <View>
+    <View className="mb-24">
       <Text className="text-xl font-bold">Testimonials</Text>
 
       <View>
