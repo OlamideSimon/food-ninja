@@ -18,7 +18,7 @@ export const Button = ({
 }: PropsWithChildren<ButtonProps>) => {
   return (
     <Pressable className={`${className}`} onPress={onPress} {...props}>
-      {children}
+      <Text>{children}</Text>
     </Pressable>
   )
 }
