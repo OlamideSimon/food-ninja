@@ -1,20 +1,39 @@
 import BottomSheet, { BottomSheetScrollView } from '@gorhom/bottom-sheet'
 import { useLocalSearchParams } from 'expo-router'
-import React, { useMemo, useRef } from 'react'
+import React, { useContext, useMemo, useRef } from 'react'
 import { Image, Pressable, View, useColorScheme } from 'react-native'
 import { colors, images } from '../../../constants'
 import { Text } from '../../../components/Themed'
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons'
 import Testimonials from '../../../components/restaurant/Testimonials'
 import { FilledButton } from '../../../components/Button'
+import { OrderContext } from '../../../context/orderContext'
 
 const Menu = () => {
-  const { id } = useLocalSearchParams()
+  // const { id } = useLocalSearchParams()
+  const { orders, setOrders } = useContext(OrderContext)
   const colorScheme = useColorScheme() ?? 'light'
   const bg_color = colorScheme === 'dark' ? '#000' : '#fff'
   const bottomSheetRef = useRef<BottomSheet>(null)
 
   const snapPoints = useMemo(() => ['50%', '50%', '90%'], [])
+
+  const addToCart = () => {
+    setOrders([
+      ...orders,
+      {
+        image: images.menu_photo,
+        name: 'Noodles',
+        price: 10,
+        restaurant: 'Rainbow sandwich sugarless',
+        noOfOrders: 1,
+      },
+    ])
+  }
+
+  const checkOrderInCart = () => {
+    return orders.some((order) => order.name === 'Noodles')
+  }
 
   return (
     <View className="flex-1 mt-10">
@@ -76,10 +95,12 @@ const Menu = () => {
         </BottomSheetScrollView>
       </BottomSheet>
       <FilledButton
+        onPress={addToCart}
         textClassName="capitalize text-xl"
         className="absolute bottom-2 right-5 left-5"
+        disabled={checkOrderInCart()}
       >
-        Add to cart
+        {checkOrderInCart() ? 'Added to cart' : 'Add to cart'}
       </FilledButton>
     </View>
   )

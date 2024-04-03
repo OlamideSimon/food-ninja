@@ -1,9 +1,9 @@
-import React from 'react'
-import { Card, ScrollView, Text, TextInput, View } from '../../components/Themed'
-import { images } from '../../constants'
-import NearestRestaurantCard from '../../components/Cards/NearestRestaurantCard'
-import { FlatList, Pressable, View as RNView } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
+import React from 'react'
+import { FlatList, View as RNView } from 'react-native'
+import NearestRestaurantCard from '../../components/Cards/NearestRestaurantCard'
+import { Card, Text, TextInput, View } from '../../components/Themed'
+import { images } from '../../constants'
 
 const sampleRestaurant = {
   image: images.restaurant,
@@ -29,9 +29,12 @@ const PopularRestaurants = () => {
 
       <FlatList
         data={new Array(50).fill(sampleRestaurant)}
-        renderItem={({ item }) => <NearestRestaurantCard item={item} />}
+        renderItem={({ item }) => (
+          <NearestRestaurantCard className="mx-auto my-2" item={item} />
+        )}
         keyExtractor={(item, index) => index.toString()}
         numColumns={2}
+        className=""
       />
     </View>
   )

@@ -1,11 +1,11 @@
-import React, { useMemo, useRef } from 'react'
-import { Card, Text, View } from '../../components/Themed'
-import { Image, useColorScheme } from 'react-native'
-import { colors, images } from '../../constants'
-import BottomSheet, { BottomSheetScrollView } from '@gorhom/bottom-sheet'
 import AntDesign from '@expo/vector-icons/AntDesign'
 import MaterialIcons from '@expo/vector-icons/MaterialIcons'
+import BottomSheet, { BottomSheetScrollView } from '@gorhom/bottom-sheet'
+import React, { useMemo, useRef } from 'react'
+import { Image, useColorScheme } from 'react-native'
+import { Card, Text, View } from '../../components/Themed'
 import Favorites from '../../components/profile/Favorites'
+import { colors, images } from '../../constants'
 
 const Profile = () => {
   const colorScheme = useColorScheme() ?? 'light'
@@ -16,7 +16,6 @@ const Profile = () => {
   return (
     <View className="flex-1">
       <Image source={images.photo} className="w-full h-2/6" />
-      <Text>Profile</Text>
 
       <BottomSheet
         handleStyle={{ backgroundColor: bg_color }}

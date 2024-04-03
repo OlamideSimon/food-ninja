@@ -1,10 +1,9 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome'
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native'
 import { useFonts } from 'expo-font'
 import { SplashScreen, Stack } from 'expo-router'
 import { useEffect } from 'react'
-import { useColorScheme } from 'nativewind'
 import { View } from '../components/Themed'
+import Providers from '../components/providers'
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -44,13 +43,11 @@ export default function RootLayout() {
 }
 
 function RootLayoutNav() {
-  const { colorScheme } = useColorScheme()
-
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+    <Providers>
       <View style={{ flex: 1 }}>
         <Stack screenOptions={{ headerShown: false }} />
       </View>
-    </ThemeProvider>
+    </Providers>
   )
 }

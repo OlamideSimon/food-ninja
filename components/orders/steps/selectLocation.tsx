@@ -13,7 +13,6 @@ type Props = {
 }
 
 const SelectLocation = ({ data, nextStep, onChange }: Props) => {
-  // const [streetName, setStreetName] = useState<string | null>(null)
   const { streetName } = data
   const [searchQuery, setSearchQuery] = useState<string>('')
 

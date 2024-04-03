@@ -23,7 +23,7 @@ const PopularMenuCard = ({ item }: PopularMenuCardProps) => {
   }
 
   return (
-    <Button onPress={onPress} className="my-2">
+    <Button onPress={onPress} className="my-2 w-full">
       <Card className="py-3 px-5 flex-row items-center h-[100px] rounded-2xl">
         <Image source={image!} className="rounded-xl" />
 

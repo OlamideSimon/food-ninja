@@ -1,18 +1,15 @@
-import React, { useState } from 'react'
-import AppContainer from '../../components/AppContainer'
-import { Pressable } from 'react-native'
-import { bioStyles } from '../../components/bio/bio.styles'
-import PersonalDetails from '../../components/bio/Bio_steps/personal_details'
-import UploadPhoto from '../../components/bio/Bio_steps/upload_photo'
-import PaymentMethod from '../../components/bio/Bio_steps/payment_method'
-import PreviewPhoto from '../../components/bio/Bio_steps/preview_photo'
-import Location from '../../components/bio/Bio_steps/location'
-import Icon from 'react-native-vector-icons/Entypo'
-import { Text, View } from '../../components/Themed'
-import Success from '../../components/bio/Bio_steps/success'
 import { useRouter } from 'expo-router'
+import React, { useEffect, useState } from 'react'
+import { BackHandler } from 'react-native'
+import AppContainer from '../../components/AppContainer'
 import { Button, StepperFormBackButton } from '../../components/Button'
 import SuccessScreen from '../../components/SuccessScreen'
+import { Text, View } from '../../components/Themed'
+import Location from '../../components/bio/Bio_steps/location'
+import PaymentMethod from '../../components/bio/Bio_steps/payment_method'
+import PersonalDetails from '../../components/bio/Bio_steps/personal_details'
+import PreviewPhoto from '../../components/bio/Bio_steps/preview_photo'
+import UploadPhoto from '../../components/bio/Bio_steps/upload_photo'
 
 const ProfileDetails = () => {
   const router = useRouter()
@@ -25,6 +22,30 @@ const ProfileDetails = () => {
   const prevStep = () => {
     setStep(step > 1 ? step - 1 : 1)
   }
+
+  useEffect(() => {
+    BackHandler.addEventListener('hardwareBackPress', () => {
+      if (step > 1) {
+        setStep(step - 1)
+        return true
+      } else {
+        router.back()
+        return false
+      }
+    })
+
+    return () => {
+      BackHandler.removeEventListener('hardwareBackPress', () => {
+        if (step > 1) {
+          setStep(step - 1)
+          return true
+        } else {
+          router.back()
+          return false
+        }
+      })
+    }
+  }, [step])
 
   const bioSteps: any = {
     1: <PersonalDetails />,

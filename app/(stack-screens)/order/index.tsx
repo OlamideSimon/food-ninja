@@ -1,18 +1,29 @@
-import { View, Text, BackHandler, StyleSheet } from 'react-native'
-import React, { useEffect } from 'react'
-import { router } from 'expo-router'
-import SelectLocation from '../../../components/orders/steps/selectLocation'
-import MapView, { Marker } from 'react-native-maps'
 import * as Location from 'expo-location'
+import { router } from 'expo-router'
+import React, { useEffect } from 'react'
+import { BackHandler, StyleSheet, View } from 'react-native'
+import MapView, { Marker } from 'react-native-maps'
+import SelectLocation from '../../../components/orders/steps/selectLocation'
 import TrackOrder from '../../../components/orders/steps/trackOrder'
 
 const Order = () => {
   const [currentStep, setCurrentStep] = React.useState<number>(1)
   const [data, setData] = React.useState<{
-    location: Location.LocationObject | null
+    location: Location.LocationObject
     streetName: string
   }>({
-    location: null,
+    location: {
+      coords: {
+        latitude: 0,
+        longitude: 0,
+        altitude: null,
+        accuracy: null,
+        altitudeAccuracy: null,
+        heading: null,
+        speed: null,
+      },
+      timestamp: 0,
+    },
     streetName: '',
   })
   const { location, streetName } = data
@@ -25,16 +36,20 @@ const Order = () => {
       }
 
       let userLocation = await Location.getCurrentPositionAsync({})
-      onChange('location', userLocation)
 
       try {
         const response = await fetch(
           `https://nominatim.openstreetmap.org/reverse?format=json&lat=${userLocation.coords.latitude}&lon=${userLocation.coords.longitude}`
         )
         const scrape = await response.json()
-        onChange('streetName', `${scrape.address.road}, ${scrape.address.city}`)
+        console.log(scrape)
+        setData({
+          location: userLocation,
+          streetName: `${scrape.address.road}, ${scrape.address.city}`,
+        })
       } catch (error) {
         console.error('Error fetching street name:', error)
+        alert('Error fetching street name')
       }
     })()
   }, [])
@@ -90,6 +105,8 @@ const Order = () => {
     1: <SelectLocation {...props} />,
     2: <TrackOrder {...props} />,
   }
+
+  console.log(location)
 
   return (
     <View className="flex-1">

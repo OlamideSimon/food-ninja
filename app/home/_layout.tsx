@@ -1,10 +1,11 @@
 import { Tabs } from 'expo-router'
-import React from 'react'
+import React, { useContext } from 'react'
 import { Colors, colors } from '../../constants'
 import { Pressable, Text, View, useColorScheme } from 'react-native'
 import { Link } from 'expo-router'
 import { FontAwesome, FontAwesome5, Foundation, Ionicons } from '@expo/vector-icons'
 import { Text as CustomText } from '../../components/Themed'
+import { OrderContext } from '../../context/orderContext'
 
 function TabBarIcon(props: {
   name: React.ComponentProps<typeof FontAwesome>['name']
@@ -15,6 +16,7 @@ function TabBarIcon(props: {
 
 const HomeLayout = () => {
   const colorScheme = useColorScheme()
+  const { orders } = useContext(OrderContext)
 
   return (
     <Tabs
@@ -65,13 +67,29 @@ const HomeLayout = () => {
           tabBarIcon: ({ focused }) =>
             focused ? (
               <View className="flex-row items-center gap-x-2 bg-primary/25 py-3 px-3 rounded-3xl">
-                <FontAwesome5 name="shopping-cart" color={colors.green} size={20} />
+                <View className="relative">
+                  {orders.length > 0 && (
+                    <View className="absolute -top-2 -right-2 rounded-full bg-red-500 w-4 h-4 items-center justify-center z-[1]">
+                      <Text className="text-xs font-bold text-white">
+                        {orders.length}
+                      </Text>
+                    </View>
+                  )}
+                  <FontAwesome5 name="shopping-cart" color={colors.green} size={20} />
+                </View>
                 <CustomText className="font-semibold">Orders</CustomText>
               </View>
             ) : (
-              <Text className="text-primary/50">
-                <FontAwesome5 name="shopping-cart" size={25} />
-              </Text>
+              <View className="relative">
+                {orders.length > 0 && (
+                  <View className="absolute -top-2 -right-2 rounded-full bg-red-500 w-4 h-4 items-center justify-center z-[1]">
+                    <Text className="text-xs font-bold text-white">{orders.length}</Text>
+                  </View>
+                )}
+                <Text className="text-primary/50">
+                  <FontAwesome5 name="shopping-cart" size={25} />
+                </Text>
+              </View>
             ),
         }}
       />

@@ -14,11 +14,18 @@ export const Button = ({
   children,
   className,
   onPress,
+  textClassName,
+  disabled,
   ...props
 }: PropsWithChildren<ButtonProps>) => {
   return (
-    <Pressable className={`${className}`} onPress={onPress} {...props}>
-      <Text>{children}</Text>
+    <Pressable
+      disabled={disabled}
+      className={`${className}`}
+      onPress={onPress}
+      {...props}
+    >
+      {children}
     </Pressable>
   )
 }
@@ -28,13 +35,17 @@ export const FilledButton = ({
   className,
   onPress,
   textClassName,
+  disabled,
   ...props
 }: PropsWithChildren<ButtonProps>) => {
   return (
     <Button
       onPress={onPress}
-      className={`bg-primary py-4 rounded-xl justify-center items-center ${className}`}
+      className={`bg-primary py-4 rounded-xl justify-center items-center ${className} ${
+        disabled && 'bg-primary/50'
+      }`}
       {...props}
+      disabled={disabled}
     >
       <Text className={`text-white text-2xl font-bold ${textClassName}`}>{children}</Text>
     </Button>

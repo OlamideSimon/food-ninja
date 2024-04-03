@@ -1,11 +1,10 @@
+import Entypo from '@expo/vector-icons/Entypo'
+import FontAwesome from '@expo/vector-icons/FontAwesome'
+import * as ImagePicker from 'expo-image-picker'
 import React, { useState } from 'react'
+import { Pressable } from 'react-native'
 import { Card, Text, View } from '../../Themed'
 import { bioStyles } from '../bio.styles'
-import FontAwesome from '@expo/vector-icons/FontAwesome'
-import Entypo from '@expo/vector-icons/Entypo'
-import { Button, Pressable } from 'react-native'
-import * as ImagePicker from 'expo-image-picker'
-import { Camera, CameraType } from 'expo-camera'
 
 const UploadPhoto = () => {
   const [selectedImage, setSelectedImage] = useState<string>()
@@ -26,7 +25,7 @@ const UploadPhoto = () => {
 
   return (
     <>
-      <Text style={bioStyles.title}>Upload your ptofile picture</Text>
+      <Text style={bioStyles.title}>Upload your profile picture</Text>
       <Text style={{ fontSize: 16 }}>
         This data will be displayed in your account for security
       </Text>

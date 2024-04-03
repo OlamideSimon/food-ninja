@@ -1,9 +1,9 @@
+import { Link } from 'expo-router'
 import React from 'react'
 import { FlatList, View } from 'react-native'
-import { Text } from '../../Themed'
-import { Link } from 'expo-router'
 import { images } from '../../../constants'
 import NearestRestaurantCard from '../../Cards/NearestRestaurantCard'
+import { Text } from '../../Themed'
 
 const sampleRestaurant = {
   image: images.restaurant,
@@ -24,7 +24,7 @@ const NearestRestaurant = () => {
 
       <FlatList
         data={new Array(10).fill(sampleRestaurant)}
-        renderItem={({ item }) => <NearestRestaurantCard item={item} />}
+        renderItem={({ item }) => <NearestRestaurantCard className="mx-2" item={item} />}
         keyExtractor={(item, index) => index.toString()}
         className="gap-x-5"
         horizontal
