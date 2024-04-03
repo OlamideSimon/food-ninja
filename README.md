@@ -52,7 +52,7 @@
 
 ## App Link
 
-https://expo.dev/@olamidesimon/food-ninja
+https://expo.dev//accounts/phantomwolf/projects/FoodNINJA/builds/ff390e8d-6e31-4b46-9153-c793fabc1b0c
 
 ## App Preview
 
