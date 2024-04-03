@@ -1,21 +1,13 @@
-# FOODNINJA
+# FOODNINJA(UI ONLY)
 
 ## Table of Contents
 
-- [FOODNINJA](#foodninja)
+- [FOODNINJA(UI ONLY)](#foodninjaui-only)
   - [Table of Contents](#table-of-contents)
   - [Description](#description)
   - [Installation](#installation)
   - [App Link](#app-link)
-  - [App Preview](#app-preview)
-        - [Login](#login)
-        - [Signup](#signup)
-        - [Profile setup after signup](#profile-setup-after-signup)
-        - [Home page](#home-page)
-        - [menu page](#menu-page)
-        - [profile page](#profile-page)
-        - [cart](#cart)
-        - [Popular restaurants](#popular-restaurants)
+  - [App Preview](#app-preview) - [Login](#login) - [Signup](#signup) - [Profile setup after signup](#profile-setup-after-signup) - [Home page](#home-page) - [menu page](#menu-page) - [profile page](#profile-page) - [cart](#cart) - [Popular restaurants](#popular-restaurants)
 
 ## Description
 
@@ -66,13 +58,7 @@ https://expo.dev//accounts/phantomwolf/projects/FoodNINJA/builds/ff390e8d-6e31-4
 
 ##### Profile setup after signup
 
-![User basic details page](./assets/app-previews/auth_user_details.png)
-![User Payment method page](./assets/app-previews/user_payment_method.png)
-![upload profile image page](./assets/app-previews/upload_profile_picture.png)
-![preview profile image page](./assets/app-previews/preview_picture_upload.png)
-![user's default location page](./assets/app-previews/get_user_default_location.png)
-![profile completion page](./assets/app-previews/profile_completion.png)
-![upload profile image page](./assets/app-previews/upload_profile_picture.png)
+![User basic details page](./assets/app-previews/auth_user_details.png) ![User Payment method page](./assets/app-previews/user_payment_method.png) ![upload profile image page](./assets/app-previews/upload_profile_picture.png) ![preview profile image page](./assets/app-previews/preview_picture_upload.png) ![user's default location page](./assets/app-previews/get_user_default_location.png) ![profile completion page](./assets/app-previews/profile_completion.png) ![upload profile image page](./assets/app-previews/upload_profile_picture.png)
 
 ##### Home page
 
@@ -80,21 +66,16 @@ https://expo.dev//accounts/phantomwolf/projects/FoodNINJA/builds/ff390e8d-6e31-4
 
 ##### menu page
 
-![menu page](./assets/app-previews/menu.png)
-![menu page scroll](./assets/app-previews/menu_screen_added_to_cart.png)
+![menu page](./assets/app-previews/menu.png) ![menu page scroll](./assets/app-previews/menu_screen_added_to_cart.png)
 
 ##### profile page
 
-![profile page](./assets/app-previews/profile.png)
-![profile favorites](./assets/app-previews/profile_order_history.png)
+![profile page](./assets/app-previews/profile.png) ![profile favorites](./assets/app-previews/profile_order_history.png)
 
 ##### cart
 
-![preview orders page](./assets//app-previews/order_details_1.png)
-![user's order location page](./assets//app-previews/order_details_2.png)
-![delivery page](./assets/app-previews/order_details_3.png)
+![preview orders page](./assets//app-previews/order_details_1.png) ![user's order location page](./assets//app-previews/order_details_2.png) ![delivery page](./assets/app-previews/order_details_3.png)
 
 ##### Popular restaurants
 
-![popular restaurants](./assets/app-previews/popular_restaurants.png)
-![preview popular restaurants](./assets/app-previews/restaurant.png)
+![popular restaurants](./assets/app-previews/popular_restaurants.png) ![preview popular restaurants](./assets/app-previews/restaurant.png)
